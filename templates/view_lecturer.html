@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1 align='center'> View Lecturers</h1>
+{% comment %} {{request.session['id_']}} {% endcomment %}
+{% if lecturers %}
+    {% for lecturer in lecturers %}
+        {% comment %} {{lecturer.id}} {% endcomment %}
+         {% include "partials/lecturer_card.html" %} 
+    {% endfor %}
+
+{% else %}
+    <p>No Lecturers</p>
+{% endif %}
+{% endblock content %}
+

@@ -1,0 +1,275 @@
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+{% if request.session.admin_id  %}
+ <center><h1 style="color:blue;" >Welcome {{request.session.admin_name}}</h1></center>
+ <div class="fixed-header" align="right">
+ <button type="button" class="btn btn-danger"><a href="{% url 'logout' %}">Logout </a></button>
+
+        
+   </div>  
+{% comment %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Lecturers
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'add_lecturer'%}">Add Lecturere</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{% url 'view_lecturer' %}">View Lecturer</a>
+          
+        </div>
+        
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Students
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'view_department_students' 1 %}">View IT Students</a>
+          <a class="dropdown-item" href="#">View CSE Student</a>
+          <div class="dropdown-divider"></div>
+        </div>
+        
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'logout' %}">Logout </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav> {% endcomment %}
+
+
+
+
+<style>
+.team_area {
+  background: #f9f9ff; }
+
+.team_inner {
+  margin-bottom: -30px; }
+
+.team_item {
+  position: relative;
+  text-align: center;
+  margin-bottom: 30px; }
+  .team_item .team_img {
+    position: relative; }
+    .team_item .team_img img {
+      width: 100%; }
+    .team_item .team_img:before {
+      content: "";
+      background: rgba(255, 255, 255, 0.65);
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: all 300ms ease;
+      border-radius: 50%; }
+    .team_item .team_img .hover {
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      opacity: 0;
+      transition: all 300ms linear 0s; }
+      .team_item .team_img .hover a {
+        font-size: 14px;
+        color: #777777;
+        margin-right: 20px;
+        transition: all 300ms linear 0s; }
+        .team_item .team_img .hover a:last-child {
+          margin-right: 0px; }
+        .team_item .team_img .hover a:hover {
+          color: #4dbf1c; }
+  .team_item .team_name {
+    text-align: center;
+    margin-top: 30px; }
+    .team_item .team_name h4 {
+      margin-bottom: 5px;
+      color: #222222;
+      font-family: "Playfair Display", serif;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 300ms linear 0s; }
+    .team_item .team_name p {
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      color: #777777;
+      margin-bottom: 0px; }
+  .team_item:hover .team_img:before {
+    opacity: 1; }
+  .team_item:hover .team_img .hover {
+    opacity: 1; }
+  .team_item:hover .team_name h4 {
+    color: #4dbf1c; }
+  .fixed-footer{
+        bottom: 0;
+    }
+  
+  .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: rgba(50, 115, 220, 0.3);
+        padding: 10px 0;
+        color: Black;
+    }   
+
+</style>
+
+<!--================Team Area =================-->
+                                        <section class="team_area p_120">
+                                        <div class="container">
+                                        <div class="main_title">
+                                        </div>
+                                        <div class="row team_inner">
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+
+                                        <img class="rounded-circle" src="/static/images/addlecturer.png" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a  href="{% url 'add_lecturer'%}"><h4>Add Lecturer</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+                                        <img class="rounded-circle" src="/static/images/lecturer1.jpg" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a  href="{% url 'view_lecturer'%}"><h4>View Lecturer</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+                                        <img class="rounded-circle" src="/static/images/student.png" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a href="{% url 'view_department_students' 1 %}">View IT Students</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+                                        <img class="rounded-circle" src="/static/images/student.png" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a href="{% url 'view_department_students' 2 %}">View CSE Students</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        
+<!--================End Team Area =================-->
+<section class="team_area p_120">
+                                        <div class="container">
+                                        <div class="main_title">
+                                        </div>
+                                        <div class="row team_inner">
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+                                        <img class="rounded-circle" src="/static/images/student.png" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a href="{% url 'view_department_students' 3 %}">View ECE Students</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+                                        <img class="rounded-circle" src="/static/images/student.png" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a href="{% url 'view_department_students' 4 %}">View EEE Students</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        
+<!--================End Team Area =================-->
+{% else %}
+
+{% endif %}
+<pre>
+
+
+
+
+
+
+</pre>
+ <div class="fixed-footer">
+        <div class="container">Copyright &copy; 2019 Code Black &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <img src="/static/images/codeblack.jpg" height=50 width=75>
+        
+        </div>  
+
+
+ </div>

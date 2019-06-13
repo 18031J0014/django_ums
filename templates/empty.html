@@ -1,0 +1,171 @@
+{% comment %} <!DOCTYPE html>
+<html>
+   <head>
+      <title>Title of the document</title>
+   </head>
+   <body>
+   <form>
+         <input type="button" onclick="window.location.href = ' ';" value="update"/>
+         <input type="button" onclick="window.location.href = '';" value="view students"/>
+
+      </form>
+   </body>
+</html> {% endcomment %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<style>
+.team_area {
+  background: #f9f9ff; }
+
+.team_inner {
+  margin-bottom: -30px; }
+
+.team_item {
+  position: relative;
+  text-align: center;
+  margin-bottom: 30px; }
+  .team_item .team_img {
+    position: relative; }
+    .team_item .team_img img {
+      width: 100%; }
+    .team_item .team_img:before {
+      content: "";
+      background: rgba(255, 255, 255, 0.65);
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: all 300ms ease;
+      border-radius: 50%; }
+    .team_item .team_img .hover {
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      opacity: 0;
+      transition: all 300ms linear 0s; }
+      .team_item .team_img .hover a {
+        font-size: 14px;
+        color: #777777;
+        margin-right: 20px;
+        transition: all 300ms linear 0s; }
+        .team_item .team_img .hover a:last-child {
+          margin-right: 0px; }
+        .team_item .team_img .hover a:hover {
+          color: #4dbf1c; }
+  .team_item .team_name {
+    text-align: center;
+    margin-top: 30px; }
+    .team_item .team_name h4 {
+      margin-bottom: 5px;
+      color: #222222;
+      font-family: "Playfair Display", serif;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 300ms linear 0s; }
+    .team_item .team_name p {
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      color: #777777;
+      margin-bottom: 0px; }
+  .team_item:hover .team_img:before {
+    opacity: 1; }
+  .team_item:hover .team_img .hover {
+    opacity: 1; }
+  .team_item:hover .team_name h4 {
+    color: #4dbf1c; }
+  .fixed-footer{
+        bottom: 0;
+    }
+  
+  .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: rgba(50, 115, 220, 0.3);
+        padding: 10px 0;
+        color: Black;
+    }   
+
+</style>
+<pre>
+
+
+
+
+
+
+</pre>
+<!--================Team Area =================-->
+                                        <section class="team_area p_120">
+                                        <div class="container">
+                                        <div class="main_title">
+                                        </div>
+                                        <div class="row team_inner">
+                                        <pre>
+
+
+
+                                        </pre>
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+
+                                        <img class="rounded-circle" src="/static/images/profile.png" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name"> 
+                                        <a  href="{% url 'update_lecturer' l_id%}"><h4>Update</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+                                        <img class="rounded-circle" src="/static/images/lecturer1.jpg" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a  href="{% url 'view_student' l_id%}"><h4>View Students</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        
+                                        
+<!--================End Team Area =================-->
+
+
+<pre>
+
+
+
+
+
+
+</pre>
+ <div class="fixed-footer">
+        <div class="container">Copyright &copy; 2019 Code Black &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <img src="/static/images/codeblack.jpg" height=50 width=75>
+        
+        </div>  
+
+
+ </div>

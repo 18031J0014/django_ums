@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if students %}
+
+     {% for student in students %}
+    
+    {% ifequal student.department request.session.dept_ %}
+     
+             {% include "partials/student_card.html" %}  
+        {% endifequal %}
+
+    {% endfor %}
+
+{% else %}
+    <p>No Students</p>
+{% endif %}
+{% endblock content %}

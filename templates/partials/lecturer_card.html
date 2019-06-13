@@ -1,0 +1,511 @@
+ {% comment %} {% load static %}
+{% if lecturer.gender == 'male' %}
+    <!-- Card for details -->
+      <div class="card my-2 mx-2 boy-card mx-auto w-25">
+        <img src={% if lecturer.image %}
+        {{ lecturer.image.url }}
+        {% else %}
+        "{%static './images/boy.png'%}"
+        {% endif %}
+        
+         class="img-fluid" />
+        <div class="card-header">
+          <a href="{% url 'view_lecturer_detail' lecturer.id %}" class="text-white header-link"
+            ><i class="fas fa-mars mr-2"></i> {{lecturer.name}}</a>
+        </div> 
+        <div class="card-body pb-0">
+          <p>
+            <i class="fas fa-at mr-2"></i>
+            <a href="{{lecturer.email}}">{{lecturer.email}}</a>
+          </p>
+          <p>
+            <i class="fas fa-phone mr-2"></i>
+            <a href="tel:{{lecturer.phone}}">{{lecturer.phone}}</a>
+          </p>
+          <p><i class="fas fa-info-circle mr-2"></i> {{lecturer.info}}</p>
+        </div>
+      </div>
+      <!-- Card for details ends -->
+  {% else %}
+  <div class="card my-2 mx-2 girl-card mx-auto w-25">
+        <img src={% if lecturer.image %}
+        {{ lecturer.image.url }}
+        {% else %}
+        "{%static './images/girl.png'%}"
+        {% endif %}
+
+         class="img-fluid" />
+         <div class="card-header">
+          <a href="{% url 'view_lecturer_detail' lecturer.id %}" class="text-white header-link"
+            ><i class="fas fa-venus mr-2"></i> {{lecturer.name}}</a
+          >
+        </div> 
+        <div class="card-body pb-0">
+          <p>
+            <i class="fas fa-at mr-2"></i>
+            <a href="{{lecturer.email}}">{{lecturer.email}}</a>
+          </p>
+          <p>
+            <i class="fas fa-phone mr-2"></i>
+            <a href="tel:{{lecturer.phone}}">{{lecturer.phone}}</a>
+          </p>
+          <p><i class="fas fa-info-circle mr-2"></i> {{lecturer.info}}</p>
+        </div>
+      </div>
+    {% endif %}
+  {% endcomment %}
+
+{% load static %}
+  <div class="full-width">
+    <style>
+        @charset "UTF-8";
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+        @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+        
+        *, *::before, *::after { box-sizing: border-box; -webkit-box-sizing: border-box; }
+        .cf::after, .cf::before { content: ' '; display: table; }
+        .cf::after { clear: both; }
+        
+        body, html {
+            height: 100%;
+        }
+    
+    body {
+        background: #fff;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        color: #484848;
+    }
+    
+    a {
+        text-decoration: none;
+        outline: none;
+    }
+    
+    .red {
+        color: #ef5350;
+    }
+    
+    .blue {
+        color: #0277bd;
+    }
+    
+    .orange {
+        color: #fd6b0d;
+    }
+    
+    .yellow {
+        color: #e5af0e;
+    }
+    
+    .green {
+        color: #2e7d32;
+    }
+    
+    .cyan {
+        color: #3f9489;
+    }
+    
+    .full-width {
+        position: relative;
+        max-width: 906px;
+        margin: 20px auto;
+    }
+    
+    .col-md-3 {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    
+    
+    /* ---- Card View ---- */
+    .card-view {
+        background: #fff;
+        -webkit-box-shadow: 0px 1px 1px 0px rgba(204,204,204,0.2);
+        -moz-box-shadow   : 0px 1px 1px 0px rgba(204,204,204,0.2);
+        box-shadow        : 0px 1px 1px 0px rgba(204,204,204,0.2);
+        float: left;
+        width: 292px;
+        margin: 5px;
+    }
+    
+    .container {
+        border: 1px solid #efefef;
+        padding: 15px;
+    }
+    
+    .bg {
+        display: block;
+        overflow: hidden;
+        max-height: 170px;
+        max-width: 292px;
+        background: #000;
+    }
+    
+    .bg img {
+        -webkit-transform: translate3d(0,-5px,0);
+        transform: translate3d(0,-5px,0);
+        transition: opacity 0.35s, transform 0.35s;
+        -webkit-transition: opacity 0.35s, transform 0.35s;
+    }
+    
+    .bg:hover img {
+        opacity: 0.7;
+        transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0,0,0);
+    }
+    
+    .tag_name {
+        font-family: 'Roboto Slab', serif;
+        font-size  : 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
+    
+    /* COMPANY INFO ------------------------ */
+    .c_logo {
+        display: table-cell;
+    }
+    
+    .c_logo img {
+        display: inline-block;
+        outline: none;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+    }
+    
+    .c_info {
+        display: table-cell;
+        vertical-align: middle;
+        padding-top: 5px;
+        padding-left: 10px;
+        line-height: 18px;
+    }
+    
+    .c_name {
+        font-size: 20px;
+        font-weight: 500;
+        color: #3c3c3c;
+    }
+    
+    .c_industry {
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        color: #7e8890;
+    }
+    
+    .card-view #c_stars, #c_stars span { /* white star bottom */
+        display: inline-block;
+        background: url('https://s15.postimg.org/igu2opvh3/stars.png') 0 -12px repeat-x;
+        width: 60px;
+        height: 12px;
+    }
+    
+    .card-view #c_stars span { /* orange stars overlay  - set width by JS code */
+        background-position: 0 0;
+        vertical-align: super;
+    }
+    
+    .c_num {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+        vertical-align: super;
+    }
+    
+    .c_content {
+        margin-top: -10px;
+    }
+    
+    .c_content p {
+        line-height: 21px;
+    }
+    
+    .c_content .title {
+        color: #484848;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+    }
+    
+    .c_content .review {
+        font-weight: 300;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        margin-top: -10px;
+    }
+    
+    /* USER INFO ------------------------ */
+    .user .user_avatar img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+    }
+    
+    .user .user_avatar {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    
+    .user .user_info {
+        display: table-cell;
+        vertical-align: middle;
+        color: rgba(0,0,0,0.35);
+        font-size: 14px;
+        line-height: 1.4;
+        padding-left: 10px;
+    }
+    
+    .user .user_name {
+        font-weight: 500;
+    }
+    
+    /* ---- List View ---- */
+    .list-view {
+        background: #fff;
+        -webkit-box-shadow: 0px 1px 1px 0px rgba(204,204,204,0.2);
+        -moz-box-shadow   : 0px 1px 1px 0px rgba(204,204,204,0.2);
+        box-shadow        : 0px 1px 1px 0px rgba(204,204,204,0.2);
+        float: left;
+        margin: 5px;
+    }
+    
+    .list-view:last-child {
+        margin-bottom: 20px;
+    }
+    
+    .list-view .container {
+        border: 1px solid #efefef;
+        padding: 15px;
+    }
+    
+    .list-view .bg {
+        display: none;
+    }
+    
+    .list-view .bg img {
+        -webkit-transform: translate3d(0,-5px,0);
+        transform: translate3d(0,-5px,0);
+        transition: opacity 0.35s, transform 0.35s;
+        -webkit-transition: opacity 0.35s, transform 0.35s;
+    }
+    
+    .list-view .bg:hover img {
+        opacity: 0.7;
+        transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0,0,0);
+    }
+    
+    .list-view .tag_name {
+        font-family: 'Roboto Slab', serif;
+        font-size  : 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+    
+    /* COMPANY INFO ------------------------ */
+    .list-view .c_logo {
+        display: none;
+    }
+    
+    .list-view .c_logo img {
+        display: none;
+    }
+    
+    .list-view .c_info {
+        display: table-cell;
+        vertical-align: middle;
+        padding-top: 5px;
+        padding-left: 0;
+        line-height: 18px;
+    }
+    
+    .list-view .c_name {
+        font-size: 20px;
+        font-weight: 500;
+        color: #3c3c3c;
+    }
+    
+    .list-view .c_industry {
+        font-weight: 400;
+        font-size: 12px;
+        letter-spacing: 0.05em;
+        color: #7e8890;
+    }
+    
+    .list-view #c_stars, #c_stars span { /* white star bottom */
+        display: inline-block;
+        background: url('https://s15.postimg.org/igu2opvh3/stars.png') 0 -12px repeat-x;
+        width: 60px;
+        height: 12px;
+    }
+    
+    .list-view #c_stars span { /* orange stars overlay  - set width by JS code */
+        background-position: 0 0;
+        vertical-align: super;
+    }
+    
+    .list-view .c_num {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500;
+        vertical-align: super;
+    }
+    
+    .list-view .c_content {
+        margin-top: -15px;
+    }
+    
+    .list-view .c_content p {
+        line-height: 21px;
+    }
+    
+    .list-view .c_content .title {
+        color: #484848;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.02em;
+    }
+    
+    .list-view .c_content .review {
+        font-weight: 300;
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        margin-top: -10px;
+    }
+    
+    /* USER INFO ------------------------ */
+    .list-view .user .user_avatar img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+    }
+    
+    .user .user_avatar {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    
+    .list-view .user .user_info {
+        display: table-cell;
+        vertical-align: middle;
+        color: rgba(0,0,0,0.35);
+        font-size: 14px;
+        line-height: 1.4;
+        padding-left: 10px;
+    }
+    
+    .list-view .user .user_name {
+        font-weight: 500;
+    }
+    
+    @media screen and (max-width: 920px) and (min-width: 621px) {
+        .full-width {
+            max-width: 604px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    
+    @media screen and (max-width: 620px){
+        .full-width {
+            max-width: 302px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+        </style>
+    
+    
+   
+    
+
+    
+    {% if lecturer.gender == 'male' %}
+
+         <div class="column">
+         <div class="card-view">
+            <div class='bg'>
+            
+                <img src={% if lecturer.image %} {{lecturer.image.url}} 
+                {% else %} 
+                "{%static './images/boy.png'%}"
+                {% endif %}
+                 height=200px
+                 width=300px
+                  alt="company image">
+                    </div>
+            <div class="container">
+                <a href='{% url 'view_lecturer_detail' lecturer.id %}'><div class="tag_name red">{{lecturer.name}}</div></a>
+                <div class="company">
+                    
+                    <div class="c_info">
+                        
+                        <span class="c_industry">{{lecturer.email}}</span><br>
+                        <span class="c_industry">{{lecturer.phone}}</span><br>
+                        <span class="c_industry">{{lecturer.department}}</span><br>
+                        <span id="c_stars" data-star="3.5"></span>
+                        
+                    </div>
+                </div> <!-- end .company -->
+                
+                <div class="user">
+                    <div class="user_info">
+                        <a class="user_name orange">{{lecturer.name}}</a> <br>{{lecturer.info}}
+                    </div>
+                </div> <!-- end .user -->
+            </div> <!-- end .container -->
+        </div>
+        </div>
+    {% else %}
+    <div class="column">
+             <div class="card-view">
+
+            <div class='bg'>
+            
+                <img src={% if lecturer.image %} {{lecturer.image.url}} 
+                {% else %} 
+                "{%static './images/girl.png'%}"
+                {% endif %}
+                 height=200px
+                 width=300px
+                  alt="company image">
+                    </div>
+            <div class="container">
+                <a href='{% url 'view_lecturer_detail' lecturer.id %}'><div class="tag_name red">{{lecturer.name}}</div></a>
+                <div class="company">
+                    
+                    <div class="c_info">
+                        
+                        <span class="c_industry">{{lecturer.email}}</span><br>
+                        <span class="c_industry">{{lecturer.phone}}</span><br>
+                        <span class="c_industry">{{lecturer.department}}</span><br>
+                        <span id="c_stars" data-star="3.5"></span>
+                        
+                    </div>
+                </div> <!-- end .company -->
+                
+                <div class="user">
+                    <div class="user_info">
+                        <a class="user_name orange">{{lecturer.name}}</a> <br>{{lecturer.info}}
+                    </div>
+                </div> <!-- end .user -->
+            </div> <!-- end .container -->
+            </div> <!-- end card -->    
+    </div> <!-- end col-md-3 -->
+            </div>
+    {% endif %} 
+        
+        
+    
+</div>
+

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% include 'partials/student_card.html'%}
+    
+     <p class="text-center text-light">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+     <a class="btn btn-danger px-5" href="{% url 'delete_student' student.id %}">
+     <i class="fas fa-trash-alt"></i> &nbsp; Delete
+     
+     </a>
+     <a class="btn btn-success px-5" href="{% url 'add_marks' %}">
+     <i class="fas fa-trash-alt"></i> &nbsp; Add Marks
+     
+     </a>
+      
+     </p>
+
+    
+
+{% endblock content %}

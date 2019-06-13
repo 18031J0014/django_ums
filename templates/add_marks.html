@@ -1,0 +1,278 @@
+ {% comment %} <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<script>
+$(document).ready(function(){
+$("#textBox").change(function () {
+if ($('#textBox').val()>35){
+$("#message").val('Pass');
+}
+else if($('#textBox').val()<=35){
+$("#message").val('Fail');
+}
+});
+});
+</script>
+
+</head>
+<body>
+
+<h3>Marks Upload</h3>
+
+
+  <form action="" method="POST" enctype="multipart/form-data" >
+  {% csrf_token %}
+  <div class="container">
+  <fieldset class="module aligned ">
+      <div class="form-row field-rollno">           
+            <div> 
+                 <label for="frollno">Roll No</label>
+                 <input type="text" id="frollno" name="frollno" placeholder="Roll No...">
+            </div>
+        </div>
+
+       <div class="form-row field-department">
+            <div>
+                <label class="required" for="id_department">Department:</label>
+                <select name="department" required id="id_department">
+                <option value="" selected>---------</option>
+                <option value="IT">IT</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row field-semister">
+            <div>
+                <label class="required" >Semister:</label>
+                <select name="semister" required id="id_semister">
+                <option value="" selected>---------</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                </select>
+            </div>
+        </div>
+    <div class="form-row field-subjects">
+            <div>
+                <label class="required" >Subject:</label>
+                <select name="subjects" required id="id_subjects">
+                <option value="" selected>---------</option>
+                <option value="M1">M1</option>
+                <option value="MM">MM</option>
+                <option value="CP">CP</option>
+                <option value="JAVA">JAVA</option>
+                <option value="DBMS">DBMS</option>
+                <option value="DS">DS</option>
+                <option value="OS">OS</option>
+                <option value="WP">WP</option>
+                </select>
+            </div>
+        </div>
+    <div class="form-row field-marks">           
+            <div>
+                <label for="textbox">Marks</label>
+                <input type="textbox" id="textBox" class="valueEnter"></input>            </div>
+            <div>
+
+</div>
+    </div>
+    <div class="form-row field-pass">           
+            <div>
+                <label for="textbox">Pass/Fail</label>
+                <input type="textbox" id="message"></input>
+            </div>
+    </div>
+    </fieldset>
+    <div class="submit-row">
+    <input type="submit" value="Create">
+    </div>
+  </form>
+</div>
+
+</body>
+</html> 
+
+
+
+
+
+----------------------- {% endcomment %}
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+
+
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+
+<body class=" app-result model-result change-form"
+  data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        <h1>Add Marks</h1>
+        <div id="content-main">
+
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<div>
+  <fieldset class="module aligned ">    
+        <div class="form-row field-name">           
+                <div>          
+                    <label class="required" for="id_name">Name:</label>
+                    <input type="text" name="name" class="vTextField" maxlength="20" required id="id_name">  
+                </div>            
+        </div>    
+        <div class="form-row field-roolno">        
+                <div>                 
+                   <label class="required" for="id_roolno">Roll No:</label>      
+                   <input type="roolno" name="roolno" class="vTextField" maxlength="254" required id="id_email">  
+                </div>
+        </div>
+        <div class="form-row field-department">
+            <div>
+                <label class="required" for="id_department">Department:</label>
+                <select name="department" required id="id_department">
+                <option value="" selected>---------</option>
+                <option value="IT">IT</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row field-semister">
+            <div>
+                <label class="required" >Semister:</label>
+                <select name="semister" required id="id_semister">
+                <option value="" selected>---------</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row field-subjects">
+            <div>
+                <label class="required" >Subject:</label>
+                <select name="subjects" required id="id_subjects">
+                <option value="" selected>---------</option>
+                <option value="M1">M1</option>
+                <option value="MM">MM</option>
+                <option value="CP">CP</option>
+                <option value="JAVA">JAVA</option>
+                <option value="DBMS">DBMS</option>
+                <option value="DS">DS</option>
+                <option value="OS">OS</option>
+                <option value="WP">WP</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row field-marks">
+            <div>
+                <label class="required" for="id_marks">Marks:</label>
+                <input type="text" name="marks"  class="vTextField" maxlength="20" required id="id_marks">
+
+            </div>
+        </div>
+        <div class="form-row field-pass_fail">
+            <div>
+                <label class="required" for="id_pass_fail">Pass/Fail:</label>
+                <input type="text" name="pass_fail"  class="vTextField" maxlength="20" required id="id_pass_fail">
+            </div>
+        </div>
+        
+    </fieldset>
+<div class="submit-row">
+<input type="submit" value ="Create" >
+</div>
+</div>
+</form></div>
+
+        
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% endblock content %} {% endcomment %}
+
+</html>

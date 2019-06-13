@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block content %}
+<center><h1 style="color:blue;" >Welcome {{request.session.name_}}</h1></center>
+<div align="right">
+ <button type="button" class="btn btn-danger"><a href="{% url 'logout' %}">Logout </a></button>
+
+        
+   </div> 
+<center>
+<style>
+.team_area {
+  background: #f9f9ff; }
+
+.team_inner {
+  margin-bottom: -30px; }
+
+.team_item {
+  position: relative;
+  text-align: center;
+  margin-bottom: 30px; }
+  .team_item .team_img {
+    position: relative; }
+    .team_item .team_img img {
+      width: 100%; }
+    .team_item .team_img:before {
+      content: "";
+      background: rgba(255, 255, 255, 0.65);
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: all 300ms ease;
+      border-radius: 50%; }
+    .team_item .team_img .hover {
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      opacity: 0;
+      transition: all 300ms linear 0s; }
+      .team_item .team_img .hover a {
+        font-size: 14px;
+        color: #777777;
+        margin-right: 20px;
+        transition: all 300ms linear 0s; }
+        .team_item .team_img .hover a:last-child {
+          margin-right: 0px; }
+        .team_item .team_img .hover a:hover {
+          color: #4dbf1c; }
+  .team_item .team_name {
+    text-align: center;
+    margin-top: 30px; }
+    .team_item .team_name h4 {
+      margin-bottom: 5px;
+      color: #222222;
+      font-family: "Playfair Display", serif;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 300ms linear 0s; }
+    .team_item .team_name p {
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      color: #777777;
+      margin-bottom: 0px; }
+  .team_item:hover .team_img:before {
+    opacity: 1; }
+  .team_item:hover .team_img .hover {
+    opacity: 1; }
+  .team_item:hover .team_name h4 {
+    color: #4dbf1c; }
+
+</style>
+
+<!--================Team Area =================-->
+<pre>
+</pre>
+                                        <section class="team_area p_120">
+                                        <div class="container">
+                                        <div class="main_title">
+                                        </div>
+                                        <div class="row team_inner">
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+
+                                        <img class="rounded-circle" src="/static/images/profile.png" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a  href="{% url 'view_student_profile'%}"><h4>View Profile</a>
+
+                            
+                                        </div>
+                                        </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+                                        <img class="rounded-circle" src="/static/images/payment.png" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a  href="{% url 'feepayment'%}"><h4>Make Payment</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+                                        <img class="rounded-circle" src="/static/images/results.jpg" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a  href="{% url 'results'%}"><h4>View Results</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        
+                                        
+                                        </section>
+                      
+
+
+{% endblock content %}

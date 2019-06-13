@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-us" >
+<head>
+<style>
+.fixed-footer{
+        bottom: 0;
+    }
+  
+  .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: rgba(50, 115, 220, 0.3);
+        padding: 10px 0;
+        color: Black;
+    }  
+
+</style>
+<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">
+
+
+<script type="text/javascript" src="/admin/jsi18n/"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>
+<script type="text/javascript" src="/static/admin/js/core.js"></script>
+<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>
+<script type="text/javascript" src="/static/admin/js/actions.js"></script>
+<script type="text/javascript" src="/static/admin/js/urlify.js"></script>
+<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>
+<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+    
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+
+<body class=" app-student model-student change-form"
+  data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+    <!-- Content -->
+    <div id="content" class="colM">
+        
+        <h1 style="color:blue;" align="center"><strong>Add Student</strong></h1>
+        <div id="content-main">
+
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<div>
+  <fieldset class="module aligned ">    
+        <div class="form-row field-name">           
+                <div>          
+                    <label class="required" for="id_name">Name:</label>
+                    <input type="text" name="name" class="vTextField" maxlength="20" required id="id_name">  
+                </div>            
+        </div>    
+        <div class="form-row field-email">        
+                <div>                 
+                   <label class="required" for="id_email">Email:</label>      
+                   <input type="email" name="email" class="vTextField" maxlength="254" required id="id_email">  
+                </div>
+        </div>
+        <div class="form-row field-phone">           
+                <div>                
+                    <label class="required" for="id_phone_0">Phone:</label>     
+                    <input  type="text" name="phone_0" size="13" id="id_phone_0">
+&nbsp;&nbsp;ext.&nbsp;&nbsp;<input type="text" name="phone_1" size="4" id="id_phone_1">
+                    <div class="help">Contact phone number</div>
+                </div>
+        </div>
+        <div class="form-row field-rollno">           
+                <div>                
+                    <label class="required" for="rollno">Roll Number <i>(letters and numbers only, no punctuation or special characters)</i></label><br> <input name="rollno"  pattern="[A-Za-z0-9]+">
+
+                    
+                </div>
+        </div>
+        
+        <div class="form-row field-gender">
+                <div>    
+                    <label class="required" for="id_gender">Gender:</label>
+                    <select name="gender" required id="id_gender">
+                    <option value="" selected>---------</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                    </select>
+                </div>
+        </div>
+        <div class="form-row field-department">
+            <div>
+                <label class="required" for="id_department">Department:</label>
+                <select name="department" required id="id_department">
+                <option value="" selected>---------</option>
+                <option value="IT">IT</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row field-address">
+            <div>
+                <label class="required" for="id_address">Address:</label>
+                <textarea name="address" cols="40" rows="10" class="vLargeTextField" maxlength="100" required id="id_address">
+                </textarea>
+            </div>
+        </div>
+        <div class="form-row field-password">
+            <div>
+                <label class="required" for="id_password">Password:</label>
+                <input type="text" name="password" value="Student" class="vTextField" maxlength="20" required id="id_password">
+            </div>
+        </div>
+        <div class="form-row field-image">
+            <div>
+                <label class="required" for="id_image">Image:</label>
+                <input type="file" name="image" accept="image/*" id="id_image">
+            </div>
+        </div>
+    </fieldset>
+<div class="submit-row">
+<input type="submit" value ="Create" >
+</div>
+</div>
+</form></div>
+
+        
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+   <pre>
+
+
+
+ </pre>
+<div class="fixed-footer">
+        <div class="container">Copyright &copy; 2019 Code Black &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <img src="/static/images/codeblack.jpg" height=50 width=75>
+        
+        </div>  
+
+
+ </div>
+</div>
+<!-- END Container -->
+
+
+</body>
+
+{% comment %} {% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% endblock content %} {% endcomment %}
+
+</html>

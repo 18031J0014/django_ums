@@ -1,0 +1,168 @@
+<style>
+.team_area {
+  background: #f9f9ff; }
+
+.team_inner {
+  margin-bottom: -30px; }
+
+.team_item {
+  position: relative;
+  text-align: center;
+  margin-bottom: 30px; }
+  .team_item .team_img {
+    position: relative; }
+    .team_item .team_img img {
+      width: 100%; }
+    .team_item .team_img:before {
+      content: "";
+      background: rgba(255, 255, 255, 0.65);
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: all 300ms ease;
+      border-radius: 50%; }
+    .team_item .team_img .hover {
+      position: absolute;
+      left: 0px;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+      opacity: 0;
+      transition: all 300ms linear 0s; }
+      .team_item .team_img .hover a {
+        font-size: 14px;
+        color: #777777;
+        margin-right: 20px;
+        transition: all 300ms linear 0s; }
+        .team_item .team_img .hover a:last-child {
+          margin-right: 0px; }
+        .team_item .team_img .hover a:hover {
+          color: #4dbf1c; }
+  .team_item .team_name {
+    text-align: center;
+    margin-top: 30px; }
+    .team_item .team_name h4 {
+      margin-bottom: 5px;
+      color: #222222;
+      font-family: "Playfair Display", serif;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 300ms linear 0s; }
+    .team_item .team_name p {
+      font-size: 14px;
+      font-family: "Roboto", sans-serif;
+      color: #777777;
+      margin-bottom: 0px; }
+  .team_item:hover .team_img:before {
+    opacity: 1; }
+  .team_item:hover .team_img .hover {
+    opacity: 1; }
+  .team_item:hover .team_name h4 {
+    color: #4dbf1c; }
+  .fixed-footer{
+        bottom: 0;
+    }
+  
+  .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: rgba(50, 115, 220, 0.3);
+        padding: 10px 0;
+        color: Black;
+    }   
+
+</style>
+
+{% extends "base.html" %}
+
+{% if request.user.is_authenticated  %}
+{% block content %}
+<center><h1 style="color:blue;" >Welcome {{request.session.name_}}</h1></center>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        </li>
+      
+      <li class="nav-item dropdown">
+        
+      </li>
+       {% comment %} <li class="nav-item active">
+        <a class="nav-link" href="{% url 'logout' %}">logout <span class="sr-only">(current)</span></a>
+      </li> {% endcomment %}
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+  
+        <a class="nav-link" href="{% url 'view_lecturer_profile' %}">Profile </a>
+    
+      </form>
+    <form class="form-inline my-2 my-lg-0">
+   
+        <a class="nav-link" style="color:red;" href="{% url 'logout' %}">Logout </a>
+      
+      </form>
+  </div>
+</nav>
+<pre>
+</pre>
+                            <section class="team_area p_120">
+                                        <div class="container">
+                                        <div class="main_title">
+                                        </div>
+                                        <div class="row team_inner">
+                                        <pre>
+
+
+
+
+                                        </pre>
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+
+                                        <img class="rounded-circle" src="/static/images/addlecturer.png" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a  href="{% url 'add_student' %}"><h4>Add Student</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="col-lg-3 col-sm-6">
+                                        <div class="team_item">
+                                        <div class="team_img">
+                                        <img class="rounded-circle" src="/static/images/lecturer1.jpg" alt="">
+                                        <div class="hover">
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                        </div>
+                                        <div class="team_name">
+                                        <a  href="{% url 'update' %}"><h4>Update Profile & View Students</a>
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                        
+{% endblock content %}  
+{% else %}
+      <a href="{% url 'login'%}" class="mr-4 text-white">
+      <i class="fas fa-sign-in-alt"></i> &nbsp; Login
+      </a>
+{% endif %}
+

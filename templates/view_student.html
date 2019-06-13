@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% if students %}
+
+    {% for student in students %}
+         {% include "partials/student_card.html" %} 
+    {% endfor %}
+
+{% else %}
+    <p>No Students</p>
+{% endif %}
+{% endblock content %}
+
